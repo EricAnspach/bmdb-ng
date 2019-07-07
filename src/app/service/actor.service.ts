@@ -22,7 +22,7 @@ export class ActorService {
   }
 
   // get actor by last name
-  get(actor: Actor): Observable<JsonResponse> {
+  getByLastName(id: string): Observable<JsonResponse> {
     console.log("actorsvc.get Lines..  actor id="+id);
     return this.http.get(url + "getByLastname/" + id) as Observable<JsonResponse>;
   }
