@@ -11,7 +11,7 @@ import { JsonResponse } from 'src/app/model/json-response.class';
 export class ActorListComponent implements OnInit {
   title: string = "Actor List";
   jr: JsonResponse;
-  sortCriteria: string = "name";
+  sortCriteria: string = "lastName";
   sortOrder: string = "asc";
   actors: Actor[];
 

@@ -11,10 +11,10 @@
 <p *ngIf='!actors'>Loading ...</p>
 <table class="table table-sm" *ngIf='actors'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('id')"><u>ID</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('lastName')"><u>Name</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('gender')"><u>Gender</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('birthDate')"><u>Date of Birth</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>ID</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('lastName')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('gender')"><u>Gender</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('birthDate')"><u>Date of Birth</u></a></th>
     <th class="table-secondary">Action</th>
   </tr>
   <tr *ngFor='let actor of actors | sort:sortCriteria:sortOrder'>
