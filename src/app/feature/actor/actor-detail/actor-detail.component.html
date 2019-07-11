@@ -1,3 +1,33 @@
+<app-admin-menu></app-admin-menu>
 <p>
   actor-detail works!
 </p>
+<div class='component-content'>
+	<div class = ''>
+		<div class = 'lefthalf'>
+      <span class='component-title'>[{{title}}] </span>
+      <span><a routerLink='/actor/list'>Back to Actor List</a></span>
+		</div>
+	</div>
+  <table class="table table-sm" *ngIf='actor'>
+    <tr>
+      <td>ID</td><td>{{ actor.id }}</td>
+    </tr>
+    <tr>
+      <td>Name</td><td>{{ actor.firstName }} {{ actor.lastName }}</td>
+    </tr>
+    <tr>
+      <td>Gender</td><td>{{ actor.gender }}</td>
+    </tr>
+    <tr>
+      <td>Date of Birth</td><td>{{ actor.birthdate }}</td>
+    </tr>
+    <tr>
+	    <!-- <td colspan="2">
+	      <a *ngIf='user.admin' routerLink='/vendor/edit/{{vendor.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+	      <button *ngIf='user.admin' (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+	    </td> -->
+    </tr>
+  </table>
+</div>
+

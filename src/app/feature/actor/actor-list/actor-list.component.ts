@@ -11,6 +11,8 @@ import { JsonResponse } from 'src/app/model/json-response.class';
 export class ActorListComponent implements OnInit {
   title: string = "Actor List";
   jr: JsonResponse;
+  sortCriteria: string = "name";
+  sortOrder: string = "asc";
   actors: Actor[];
 
   constructor(private actorSvc: ActorService) { }
@@ -21,6 +23,15 @@ export class ActorListComponent implements OnInit {
       this.actors = this.jr.data as Actor[];
       console.log(this.actors);
     });
+  }
+
+  sortBy(column: string): void {
+    if(this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = 'asc';
+    }
   }
 
 }

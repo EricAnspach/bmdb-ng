@@ -1,3 +1,5 @@
+import { MoviegenreService } from './service/moviegenre.service';
+import { ActorService } from 'src/app/service/actor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -5,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ActorCreateComponent } from './feature/actor/actor-create/actor-create.component';
 import { ActorEditComponent } from './feature/actor/actor-edit/actor-edit.component';
-import { ActorDetaiComponent } from './feature/actor/actor-detai/actor-detai.component';
 import { ActorDetailComponent } from './feature/actor/actor-detail/actor-detail.component';
 import { ActorListComponent } from './feature/actor/actor-list/actor-list.component';
 import { MovieListComponent } from './feature/movie/movie-list/movie-list.component';
@@ -25,13 +26,19 @@ import { MoviegenreListComponent } from './feature/moviegenre/moviegenre-list/mo
 import { MoviegenreEditComponent } from './feature/moviegenre/moviegenre-edit/moviegenre-edit.component';
 import { MoviegenreCreateComponent } from './feature/moviegenre/moviegenre-create/moviegenre-create.component';
 import { AdminLoginComponent } from './feature/admin/admin-login/admin-login.component';
+import { MenuComponent } from './core/menu/menu.component';
+import { AdminMenuComponent } from './core/admin-menu/admin-menu.component';
+import { CreditService } from './service/credit.service';
+import { GenreService } from './service/genre.service';
+import { MovieService } from './service/movie.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SortPipe } from './pipe/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActorCreateComponent,
     ActorEditComponent,
-    ActorDetaiComponent,
     ActorDetailComponent,
     ActorListComponent,
     MovieListComponent,
@@ -50,13 +57,23 @@ import { AdminLoginComponent } from './feature/admin/admin-login/admin-login.com
     MoviegenreListComponent,
     MoviegenreEditComponent,
     MoviegenreCreateComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    MenuComponent,
+    AdminMenuComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ActorService,
+    CreditService,
+    GenreService,
+    MovieService,
+    MoviegenreService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

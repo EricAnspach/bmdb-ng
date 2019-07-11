@@ -1,3 +1,30 @@
-<p>
-  actor-list works!
-</p>
+<app-admin-menu></app-admin-menu>
+<div class='component-content'>
+  <div>{{title}}</div>
+  <div class = 'lefthalf'>
+    <span class='component-title'>Add an actor </span>
+    <span><a routerLink='/actor/create'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!actors'>Loading ...</p>
+<table class="table table-sm" *ngIf='actors'>
+  <tr>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('id')"><u>ID</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('lastName')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('gender')"><u>Gender</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('birthDate')"><u>Date of Birth</u></a></th>
+    <th class="table-secondary">Action</th>
+  </tr>
+  <tr *ngFor='let actor of actors | sort:sortCriteria:sortOrder'>
+    <td>{{actor.id}}</td>
+    <td>{{actor.firstName}} {{ actor.lastName }}</td>
+    <td>{{actor.gender}}</td>
+    <td>{{actor.birthDate}}</td>
+    <td class='actions'>
+      <a routerLink='/actor/detail/{{actor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      <a routerLink='/actor/edit/{{actor.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+    </td>
+  </tr> 
+</table>
