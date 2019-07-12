@@ -23,7 +23,7 @@ import { CreditEditComponent } from './feature/credit/credit-edit/credit-edit.co
 import { CreditListComponent } from './feature/credit/credit-list/credit-list.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'actor/create', pathMatch: 'full' },
+  {path:'', redirectTo: 'actor/list', pathMatch: 'full' },
   {path:'actor/create', component: ActorCreateComponent},
   {path:'actor/detail', component: ActorDetailComponent},
   {path:'actor/edit', component: ActorEditComponent},

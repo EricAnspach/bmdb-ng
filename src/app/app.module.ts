@@ -2,6 +2,7 @@ import { MoviegenreService } from './service/moviegenre.service';
 import { ActorService } from 'src/app/service/actor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { GenreService } from './service/genre.service';
 import { MovieService } from './service/movie.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SortPipe } from './pipe/sort.pipe';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { SortPipe } from './pipe/sort.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ActorService,
