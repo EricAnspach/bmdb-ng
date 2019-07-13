@@ -17,7 +17,7 @@
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="sortBy('birthDate')"><u>Date of Birth</u></a></th>
     <th class="table-secondary">Action</th>
   </tr>
-  <tr *ngFor='let actor of actors | sort:sortCriteria:sortOrder'>
+  <tr *ngFor='let actor of actors | sort:sortCriteria:sortOrder; let i = index'>
     <td>{{actor.id}}</td>
     <td>{{actor.firstName}} {{ actor.lastName }}</td>
     <td>{{actor.gender}}</td>
@@ -25,6 +25,8 @@
     <td class='actions'>
       <a routerLink='/actor/detail/{{actor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
       <a routerLink='/actor/edit/{{actor.id}}'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+      <input type="image" src='assets/delete.jpg' width='20' height='20' title='Delete'
+          (click)="remove(actor, i)"/>
     </td>
   </tr> 
 </table>

@@ -18,13 +18,9 @@ export class ActorListComponent implements OnInit {
   constructor(private actorSvc: ActorService) { }
 
   ngOnInit() {
-    this.actorSvc.list().subscribe(jresp => {
-      this.jr = jresp;
-      this.actors = this.jr.data as Actor[];
-      console.log(this.actors);
-    });
+    this.getActors();
   }
-
+  
   sortBy(column: string): void {
     if(this.sortCriteria === column) {
       this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
@@ -33,5 +29,18 @@ export class ActorListComponent implements OnInit {
       this.sortOrder = 'asc';
     }
   }
-
+  
+  remove(actor:Actor, index:number) {
+    this.actorSvc.delete(actor.id).subscribe();
+    this.actors.splice(index, 1);
+    this.actors;
+  }
+  
+  getActors() {
+    this.actorSvc.list().subscribe(jresp => {
+      this.jr = jresp;
+      this.actors = this.jr.data as Actor[];
+      console.log(this.actors);
+    });
+  }
 }
