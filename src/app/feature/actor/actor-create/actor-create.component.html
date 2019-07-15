@@ -19,8 +19,11 @@
     </div>
     <div class="form-group row">
       <label class='col-form-label col-sm-2' for="actorGender">Gender:</label>
-      <input [(ngModel)]='actor.gender' name='actorGender' type="text" class="form-control col-sm-6"
-        id="actorGender" aria-describedby="genderHelp" placeholder="Gender">
+      <select [(ngModel)]='actor.gender' name='actorGender' type="text"
+      class="form-control col-sm-6" id="actorGender">
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+    </select>
     </div>
     <div class="form-group row">
 			<label class='col-form-label col-sm-2' for="birthDate">Date of Birth:</label>

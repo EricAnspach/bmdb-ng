@@ -1,3 +1,38 @@
-<p>
-  actor-edit works!
-</p>
+<app-admin-menu></app-admin-menu>
+
+<br>
+<div id='component'>
+  <div id="pagetitle">
+  <span>{{title}} </span>
+  <span><a routerLink='/actor/list'>Back to Actor List</a></span>
+  </div>
+  <p *ngIf='!actor'>Loading...</p>
+  <div *ngIf='actor'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="actorFirstName">First name:</label>
+      <input [(ngModel)]='actor.firstName' name='actorFirstName' type="text" class="form-control col-sm-6"
+        id="actorFirstName" aria-describedby="actorFirstName" placeholder="First Name">
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="actorLastName">Last name:</label>
+      <input [(ngModel)]='actor.lastName' name='actorLastName' type="text" class="form-control col-sm-6"
+        id="actorLastName" aria-describedby="actorLastName" placeholder="Last Name">
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="actorGender">Gender:</label>
+      <select [(ngModel)]='actor.gender' name='actorGender' type="text"
+          class="form-control col-sm-6" id="actorGender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+      </select>
+    </div>
+    <div class="form-group row">
+			<label class='col-form-label col-sm-2' for="birthDate">Date of Birth:</label>
+      <input [(ngModel)]='actor.birthDate' name='BirthDate' type="date" class="form-control col-sm-6"
+        id="birthDate" aria-describedby="birthDateHelp" placeholder="Date of Birth">
+		</div>
+    <div class='form-group'>
+      <button (click)='edit()' class='btn btn-primary'>Edit</button>
+    </div>
+  </div>
+</div>
