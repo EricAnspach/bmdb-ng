@@ -1,4 +1,40 @@
 <app-admin-menu></app-admin-menu>
-<p>
-  movie-list works!
-</p>
+<div class='component-content'>
+  <div>{{title}}</div>
+  <div class = 'lefthalf'>
+    <span class='component-title'>Add a Movie </span>
+    <span><a routerLink='/movie/create'>
+          <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<p *ngIf='!movies'>Loading ...</p>
+<table class="table table-sm" *ngIf='movies'>
+  <tr>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('id')"><u>ID</u></a></th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('title')"><u>Title</u></a></th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('rating')"><u>Rating</u></a></th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('year')"><u>Year</u></a></th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('director')"><u>Director</u></a></th>
+    <th class="table-secondary">Action</th>
+  </tr>
+  <tr *ngFor='let movie of movies | sort:sortCriteria:sortOrder; let i = index'>
+    <td>{{movie.id}}</td>
+    <td>{{ movie.title }}</td>
+    <td>{{movie.rating}}</td>
+    <td>{{movie.year}}</td>
+    <td>{{movie.director}}</td>
+    <td class='actions'>
+      <a routerLink='/movie/edit/{{movie.id}}'><img src='assets/pencil-icon.png'
+        width='20' height='20' title='Edit'></a>
+      &nbsp;
+      <input type="image" src='assets/delete.png' width='20' height='20' title='Delete'
+          (click)="remove(movie, i)"/>
+    </td>
+  </tr> 
+</table>
