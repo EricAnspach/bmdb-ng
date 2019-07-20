@@ -11,7 +11,7 @@ import { MovieService } from 'src/app/service/movie.service';
 export class MovieCreateComponent implements OnInit {
   title: string = "Movie Create";
   resp: any;
-  movie: Movie = new Movie(0,'','', 0, '');
+  movie: Movie = new Movie(0,'','', null, '');
 
   create () {
     this.movieSvc.create(this.movie)
