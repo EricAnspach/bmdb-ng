@@ -1,9 +1,10 @@
 <app-admin-menu></app-admin-menu>
 <div class='component-content'>
   <div>{{title}}</div>
+  <br>
   <div class = 'lefthalf'>
-    <span class='component-title'>Add an actor </span>
-    <span><a routerLink='/actor/create'>
+    <span *ngIf='user.isAdmin' class='component-title'>Add an actor </span>
+    <span><a *ngIf='user.isAdmin' routerLink='/actor/create'>
           <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
     </span>
   </div>
@@ -27,10 +28,12 @@
     <td>{{actor.gender}}</td>
     <td>{{actor.birthDate}}</td>
     <td class='actions'>
-      <a routerLink='/actor/edit/{{actor.id}}'><img src='assets/pencil-icon.png'
+      <a routerLink='/actor/detail/{{actor.id}}'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
+      &nbsp;
+      <a *ngIf='user.isAdmin' routerLink='/actor/edit/{{actor.id}}'><img src='assets/pencil-icon.png'
         width='20' height='20' title='Edit'></a>
       &nbsp;
-      <input type="image" src='assets/delete.png' width='20' height='20' title='Delete'
+      <input *ngIf='user.isAdmin' type="image" src='assets/delete.png' width='20' height='20' title='Delete'
           (click)="remove(actor, i)"/>
     </td>
   </tr> 

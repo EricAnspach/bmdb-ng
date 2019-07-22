@@ -1,3 +1,28 @@
-<p>
-  movie-detail works!
-</p>
+<app-admin-menu></app-admin-menu>
+<div class='component-content'>
+	<div class = ''>
+		<div class = 'lefthalf'>
+      <span class='component-title'>[{{title}}] </span>
+      <span><a routerLink='/movie/list'>Back to Movie List</a></span>
+		</div>
+	</div>
+  <table class="table table-sm" *ngIf='movie'>
+    <tr>
+      <td>ID</td><td>{{ movie.id }}</td>
+    </tr>
+    <tr>
+      <td>Title</td><td>{{ movie.title }}</td>
+    </tr>
+    <tr>
+      <td>Rating</td><td>{{ movie.rating }}</td>
+    </tr>
+    <tr>
+      <td>Year</td><td>{{ movie.year }}</td>
+    </tr>
+    <tr>
+      <td>Director</td><td>{{ movie.director }}</td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+</div>
