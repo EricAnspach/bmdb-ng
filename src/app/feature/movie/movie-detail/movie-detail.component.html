@@ -1,4 +1,5 @@
-<app-admin-menu></app-admin-menu>
+<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
+<app-menu *ngIf='!user.isAdmin'></app-menu>
 <div class='component-content'>
 	<div class = ''>
 		<div class = 'lefthalf'>
@@ -21,8 +22,6 @@
     </tr>
     <tr>
       <td>Director</td><td>{{ movie.director }}</td>
-    </tr>
-    <tr>
     </tr>
   </table>
 </div>

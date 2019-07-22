@@ -1,4 +1,5 @@
-<app-admin-menu></app-admin-menu>
+<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
+<app-menu *ngIf='!user.isAdmin'></app-menu>
 <br>
 <div id='component'>
   <div id="pagetitle">

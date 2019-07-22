@@ -1,3 +1,18 @@
-<p>
-  genre-detail works!
-</p>
+<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
+<app-menu *ngIf='!user.isAdmin'></app-menu>
+<div class='component-content'>
+	<div class = ''>
+		<div class = 'lefthalf'>
+      <span class='component-title'>[{{title}}] </span>
+      <span><a routerLink='/genre/list'>Back to Genre List</a></span>
+		</div>
+	</div>
+  <table class="table table-sm" *ngIf='genre'>
+    <tr>
+      <td>ID</td><td>{{ genre.id }}</td>
+    </tr>
+    <tr>
+      <td>Name</td><td>{{ genre.name }}</td>
+    </tr>
+  </table>
+</div>

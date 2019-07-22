@@ -1,4 +1,6 @@
-<app-admin-menu></app-admin-menu>
+<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
+<app-menu *ngIf='!user.isAdmin'></app-menu>
+<br>
 <div class='component-content'>
   <div>{{title}}</div>
   <div class = 'lefthalf'>

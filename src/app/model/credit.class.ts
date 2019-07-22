@@ -7,7 +7,7 @@ export class Credit {
     actor: Actor;
     characterName: string;
 
-    constructor(id: number, movie: Movie, actor: Actor, characterName: string, birthDate: Date) {
+    constructor(id: number, movie: Movie, actor: Actor, characterName: string) {
         this.id = id;
         this.movie = movie;
         this.actor = actor;
