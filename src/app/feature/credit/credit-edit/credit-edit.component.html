@@ -1,4 +1,39 @@
-<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
-<p>
-  credit-edit works!
-</p>
+<app-admin-menu></app-admin-menu>
+<br>
+<div id='component'>
+  <div id="pagetitle">
+  <span>{{title}} </span>
+  <span><a routerLink='/credit/list'>Back to Credit List</a></span>
+  </div>
+  <p *ngIf='!credit'>Loading...</p>
+  <div *ngIf='credit'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="movie">Movie:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='credit.movie.id' [compareWith]='compareFn' class='form-control'
+          name='Movie' id='movie'>
+          <option *ngFor="let movie of movies" [ngValue]="movie.id"
+            [selected]="movie.id == credit.movie.id">{{movie.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="actor">Actor:</label>
+        <div class=' col-sm-6'>
+          <select [(ngModel)]='credit.actor.id' [compareWith]='compareFn' class='form-control'
+            name='Actor' id='actor'>
+            <option *ngFor="let actor of actors" [ngValue]="actor.id"
+              [selected]="actor.id == credit.actor.id">{{actor.firstName}} {{actor.lastName}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="creditCharacterName">Name of Character:</label>
+      <input [(ngModel)]='credit.characterName' name='creditCharacterName' type="text" class="form-control col-sm-6"
+        id="creditCharacterName" aria-describedby="creditCharacterName" placeholder="Character Name">
+    </div>
+    <div class='form-group'>
+      <button (click)='edit()' class='btn btn-primary'>Edit</button>
+    </div>
+  </div>
+</div>

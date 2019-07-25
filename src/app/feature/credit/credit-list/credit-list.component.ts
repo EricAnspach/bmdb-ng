@@ -34,4 +34,10 @@ export class CreditListComponent implements OnInit {
     }
   }
 
+  remove(credit:Credit, index:number) {
+    this.creditSvc.delete(credit.id).subscribe();
+    this.credits.splice(index, 1);
+    this.credits;
+  }
+
 }

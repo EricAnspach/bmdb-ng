@@ -1,3 +1,5 @@
+import { User } from './../../../model/user.class';
+import { SystemService } from 'src/app/service/system.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JsonResponse } from 'src/app/model/json-response.class';
@@ -9,12 +11,15 @@ import { GenreService } from 'src/app/service/genre.service';
   templateUrl: './genre-detail.component.html',
   styleUrls: ['./genre-detail.component.css']
 })
+
 export class GenreDetailComponent implements OnInit {
   title: string = "Genre Detail";
   jr: JsonResponse;
   genre: Genre;
+  user: User;
 
   constructor(private genreSvc: GenreService,
+    private sysSvc: SystemService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -24,6 +29,7 @@ export class GenreDetailComponent implements OnInit {
         let id = parms["id"];
         this.getGenreById(id);
       });
+      this.user = this.sysSvc.data.user.instance;
   }
 
   getGenreById(id: string) {

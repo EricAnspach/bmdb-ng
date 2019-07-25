@@ -1,3 +1,31 @@
-<p>
-  moviegenre-create works!
-</p>
+<app-admin-menu></app-admin-menu>
+
+<br>
+<div id='component'>
+  <div id="pagetitle">
+  <span>{{title}}</span><br>
+  <span><a routerLink='/moviegenre/list'>Back to Movie-Genre List</a></span>
+  </div>
+  <p *ngIf='!moviegenre'>Loading...</p>
+  <div *ngIf='moviegenre'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="movie">Movie:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='moviegenre.movie' class='form-control' name='Movie' id='movie'>
+          <option *ngFor="let movie of movies" [ngValue]="movie">{{movie.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="genre">Genre:</label>
+        <div class=' col-sm-6'>
+          <select [(ngModel)]='moviegenre.genre' class='form-control' name='Genre' id='genre'>
+            <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.firstName}}</option>
+          </select>
+        </div>
+    </div>
+    <div class='form-group'>
+      <button (click)='create()' class='btn btn-primary'>Create</button>
+    </div>
+  </div>
+</div>

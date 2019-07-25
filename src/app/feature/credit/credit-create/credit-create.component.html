@@ -1,4 +1,35 @@
-<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
-<p>
-  credit-create works!
-</p>
+<app-admin-menu></app-admin-menu>
+<br>
+<div id='component'>
+  <div id="pagetitle">
+  <span>{{title}} </span>
+  <span><a routerLink='/credit/list'>Back to Credit List</a></span>
+  </div>
+  <p *ngIf='!credit'>Loading...</p>
+  <div *ngIf='credit'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="movie">Movie:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='credit.movie' class='form-control' name='Movie' id='movie'>
+          <option *ngFor="let movie of movies" [ngValue]="movie">{{movie.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="actor">Actor:</label>
+        <div class=' col-sm-6'>
+          <select [(ngModel)]='credit.actor' class='form-control' name='Actor' id='actor'>
+            <option *ngFor="let actor of actors" [ngValue]="actor">{{actor.firstName}} {{actor.lastName}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="creditCharacterName">Name of Character:</label>
+      <input [(ngModel)]='credit.characterName' name='creditCharacterName' type="text" class="form-control col-sm-6"
+        id="creditCharacterName" aria-describedby="creditCharacterName" placeholder="Character Name">
+    </div>
+    <div class='form-group'>
+      <button (click)='create()' class='btn btn-primary'>Create</button>
+    </div>
+  </div>
+</div>
