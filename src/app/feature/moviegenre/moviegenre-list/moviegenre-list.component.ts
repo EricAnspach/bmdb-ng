@@ -33,5 +33,11 @@ export class MoviegenreListComponent implements OnInit {
       this.sortOrder = 'asc';
     }
   }
+  
+  remove(moviegenre:MovieGenre, index:number) {
+    this.moviegenreSvc.delete(moviegenre.id).subscribe();
+    this.moviegenres.splice(index, 1);
+    this.moviegenres;
+  }
 
 }

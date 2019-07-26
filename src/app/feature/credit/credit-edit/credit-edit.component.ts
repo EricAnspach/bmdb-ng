@@ -13,6 +13,7 @@ import { Credit } from 'src/app/model/credit.class';
   templateUrl: './credit-edit.component.html',
   styleUrls: ['./credit-edit.component.css']
 })
+
 export class CreditEditComponent implements OnInit {
   title: string = 'Credit Edit';
   credit: Credit;

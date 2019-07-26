@@ -1,8 +1,9 @@
-<app-admin-menu *ngIf='user.isAdmin'></app-admin-menu>
+<app-admin-menu></app-admin-menu>
 <br>
 <div id='component'>
   <div id="pagetitle">
-  <span>{{title}} </span>
+  <span>{{title}} </span><br>
+  
   <span><a routerLink='/genre/list'>Back to Genre List</a></span>
   </div>
   <p *ngIf='!genre'>Loading...</p>

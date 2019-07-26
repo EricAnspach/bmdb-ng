@@ -1,3 +1,34 @@
-<p>
-  moviegenre-edit works!
-</p>
+<app-admin-menu></app-admin-menu>
+<div id='component'>
+  <div id="pagetitle">
+  <span>{{title}} </span>
+  <br><br>
+  <span><a routerLink='/moviegenre/list'>Back to Movie-Genre List</a></span>
+  </div>
+  <p *ngIf='!moviegenre'>Loading...</p>
+  <div *ngIf='moviegenre'>
+    <div class="form-group row">
+      <label class='col-form-label col-sm-2' for="movie">Movie:</label>
+      <div class=' col-sm-6'>
+        <select [(ngModel)]='moviegenre.movie.id' [compareWith]='compareFn' class='form-control'
+          name='Movie' id='movie'>
+          <option *ngFor="let movie of movies" [ngValue]="movie.id"
+            [selected]="movie.id == moviegenre.movie.id">{{movie.title}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="actor">Genre:</label>
+        <div class=' col-sm-6'>
+          <select [(ngModel)]='moviegenre.genre.id' [compareWith]='compareFn' class='form-control'
+            name='Genre' id='genre'>
+            <option *ngFor="let genre of genres" [ngValue]="genre.id"
+              [selected]="genre.id == moviegenre.genre.id">{{genre.name}}</option>
+          </select>
+        </div>
+    </div>
+    <div class='form-group'>
+      <button (click)='edit()' class='btn btn-primary'>Edit</button>
+    </div>
+  </div>
+</div>
