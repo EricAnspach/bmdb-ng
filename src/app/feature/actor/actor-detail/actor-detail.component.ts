@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Actor } from 'src/app/model/actor.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ActorService } from 'src/app/service/actor.service';
+import { SystemService } from 'src/app/service/system.service';
+import { User } from 'src/app/model/user.class';
 
 @Component({
   selector: 'app-actor-detail',
@@ -13,9 +15,11 @@ export class ActorDetailComponent implements OnInit {
   title: string = "Actor Detail";
   jr: JsonResponse;
   actor: Actor;
+  user: User;
 
   constructor(private actorSvc: ActorService,
     private route: ActivatedRoute,
+    private sysSvc: SystemService,
     private router: Router) { }
 
   ngOnInit() {
@@ -24,6 +28,7 @@ export class ActorDetailComponent implements OnInit {
         let id = parms["id"];
         this.getActorById(id);
       });
+      this.user = this.sysSvc.data.user.instance;
   }
 
   getActorById(id: string) {

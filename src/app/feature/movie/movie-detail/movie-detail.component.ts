@@ -3,6 +3,8 @@ import { JsonResponse } from 'src/app/model/json-response.class';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/model/movie.class';
 import { MovieService } from 'src/app/service/movie.service';
+import { SystemService } from 'src/app/service/system.service';
+import { User } from 'src/app/model/user.class';
 
 @Component({
   selector: 'app-movie-detail',
@@ -13,8 +15,10 @@ export class MovieDetailComponent implements OnInit {
   title: string = "Movie Detail";
   jr: JsonResponse;
   movie: Movie;
+  user: User;
 
   constructor(private movieSvc: MovieService,
+    private sysSvc: SystemService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -24,6 +28,7 @@ export class MovieDetailComponent implements OnInit {
         let id = parms["id"];
         this.getMovieById(id);
       });
+      this.user = this.sysSvc.data.user.instance;
   }
 
   getMovieById(id: string) {
