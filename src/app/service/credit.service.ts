@@ -17,7 +17,7 @@ export class CreditService {
   }
 
   listByActor(id: string): Observable<JsonResponse> {
-    return this.http.get(url + "getCreditsByActorId/" + id) as Observable<JsonResponse>;
+    return this.http.get(url + "getByActorId/" + id) as Observable<JsonResponse>;
   }
 
   get(id: string): Observable<JsonResponse> {

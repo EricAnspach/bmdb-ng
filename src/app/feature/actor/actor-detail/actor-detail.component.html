@@ -20,10 +20,25 @@
       <td>Gender</td><td>{{ actor.gender }}</td>
     </tr>
     <tr>
-      <td>Date of Birth</td><td>{{ actor.birthdate }}</td>
-    </tr>
-    <tr>
+      <td>Date of Birth</td><td>{{ actor.birthDate }}</td>
     </tr>
   </table>
 </div>
-
+<br>
+<div>
+  <table> 
+      <tr>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+            (click)="setSortBy('Id')"><u>Id</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+            (click)="setSortBy('User')"><u>Movie</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+            (click)="setSortBy('Description')"><u>Name of Character</u></a></th>
+        </tr>
+    <tr *ngFor='let credit of credits'>
+      <td>{{credit.id}}</td>
+      <td>{{credit.movie.title}}</td>
+      <td>{{credit.characterName}}</td>
+    </tr>
+  </table>
+</div>
