@@ -3,7 +3,8 @@
 <div class='component-content'>
 	<div class = ''>
 		<div class = 'lefthalf'>
-      <span class='component-title'>[{{title}}] </span>
+      <span class='component-title'>{{title}}</span>
+      <br>
       <span><a routerLink='/movie/list'>Back to Movie List</a></span>
 		</div>
 	</div>
@@ -22,6 +23,19 @@
     </tr>
     <tr>
       <td>Director</td><td>{{ movie.director }}</td>
+    </tr>
+  </table>
+</div>
+<br>
+<div>
+  <table> 
+      <tr>
+          <th><u>Actor</u></th>
+          <th><u>Name of Character</u></th>
+        </tr>
+    <tr *ngFor='let credit of credits'>
+      <td>{{credit.actor.firstName}} {{credit.actor.lastName}}</td>
+      <td>{{credit.characterName}}</td>
     </tr>
   </table>
 </div>
