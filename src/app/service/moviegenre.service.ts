@@ -15,6 +15,10 @@ export class MoviegenreService {
     return this.http.get(url) as Observable<JsonResponse>;
   }
 
+  listByGenre(id: string): Observable <JsonResponse> {
+    return this.http.get(url + "getByGenreId/" + id) as Observable<JsonResponse>;
+  }
+
   get(id: string): Observable<JsonResponse> {
     console.log("movieGenresvc.get..  id="+id);
     return this.http.get(url+id) as Observable<JsonResponse>;

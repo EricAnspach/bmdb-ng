@@ -17,3 +17,14 @@
     </tr>
   </table>
 </div>
+<br>
+<div>
+  <table> 
+      <tr>
+          <th><u>Movies of this Genre</u></th>
+        </tr>
+    <tr *ngFor='let moviegenre of moviegenres'>
+      <td>{{moviegenre.movie.title}}</td>
+    </tr>
+  </table>
+</div>
