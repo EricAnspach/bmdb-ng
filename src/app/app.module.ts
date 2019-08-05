@@ -34,6 +34,7 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
 import { ActorDetailComponent } from './feature/actor/actor-detail/actor-detail.component';
 import { MovieDetailComponent } from './feature/movie/movie-detail/movie-detail.component';
 import { GenreDetailComponent } from './feature/genre/genre-detail/genre-detail.component';
+import { HomeComponent } from './feature/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { GenreDetailComponent } from './feature/genre/genre-detail/genre-detail.
     UserLoginComponent,
     ActorDetailComponent,
     MovieDetailComponent,
-    GenreDetailComponent
+    GenreDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

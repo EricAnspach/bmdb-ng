@@ -3,6 +3,7 @@
 <br>
 <div class='component-content'>
   <div>{{title}}</div>
+  <br>
   <div class = 'lefthalf'>
     <span *ngIf='user.isAdmin' class='component-title'>Add a Movie </span>
     <span><a *ngIf='user.isAdmin' routerLink='/movie/create'>

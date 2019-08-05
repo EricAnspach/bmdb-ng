@@ -1,3 +1,4 @@
+import { HomeComponent } from './feature/home/home/home.component';
 import { ActorDetailComponent } from './feature/actor/actor-detail/actor-detail.component';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { MoviegenreListComponent } from './feature/moviegenre/moviegenre-list/moviegenre-list.component';
@@ -23,7 +24,8 @@ import { GenreDetailComponent } from './feature/genre/genre-detail/genre-detail.
 import { MovieDetailComponent } from './feature/movie/movie-detail/movie-detail.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'user/', pathMatch: 'full' },
+  {path:'', component: HomeComponent },
+  {path:'home', component: HomeComponent },
   
   {path:'actor/create', component: ActorCreateComponent},
   {path:'actor/edit/:id', component: ActorEditComponent},

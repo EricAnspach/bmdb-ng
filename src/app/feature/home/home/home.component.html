@@ -1,0 +1,37 @@
+<div class='component-content'>
+  <form class='text-center'>
+    <table class='table-sm' style='margin:50px auto;padding: 5px 20px;border:1px solid silver;width:400px;'>
+      <tr>
+        <h1>
+          Welcome to the Bootcamp Movie Database
+        </h1>
+      </tr>
+      <br>
+      <tr>
+        <button>
+            <a routerLink="/actor/list">Actors</a>
+        </button>
+      </tr>
+      <tr>
+        <button>
+            <a routerLink="/movie/list">Movies</a>
+        </button>
+      </tr>
+      <tr>
+        <button>
+            <a routerLink="/genre/list">Genres</a>
+        </button>
+      </tr>
+
+      <tr>
+      </tr>
+      <br><br><br>
+      <tr>
+        <td class='text-center' colspan="2">
+          <button type='button' (click)="login()" class='btn btn-primary'>Go to Admin Login</button>
+          <!-- <a href="/">BMDB</a> -->
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
